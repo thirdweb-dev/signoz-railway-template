@@ -87,6 +87,24 @@ receivers:
         endpoint: 0.0.0.0:4317
       http:
         endpoint: 0.0.0.0:4318
+        cors:
+          allowed_origins:
+            - https://app.atlas.bid
+            - https://atlas.bid
+            - https://*.atlas.bid
+            - http://localhost:5173
+            - http://localhost:8081
+            - http://127.0.0.1:5173
+            - http://127.0.0.1:8081
+          allowed_headers:
+            - Content-Type
+            - Authorization
+            - traceparent
+            - tracestate
+            - baggage
+            - Accept
+            - Origin
+          max_age: 86400
 service:
   extensions:
   - signoz_health_check
